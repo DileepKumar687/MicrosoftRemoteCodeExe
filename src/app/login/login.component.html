@@ -1,0 +1,27 @@
+<!-- <div style=" background:url(../assets/b.jpg) no-repeat red"></div> -->
+<div class="container-fluid bg">
+    <div class="row" style="margin-right:0px">
+
+        <!-- <div id="WelcomeImage" class="col-md-8 no-padding">
+
+            <img src="../assets/b.jpg" length="100%" width="100%">
+            <div class="clearfix"></div>
+        </div>  -->
+        
+            <div class="login-page">
+                <div class="form form-group">
+                    <h2>Login</h2>
+                    <form class="login-form">
+                        <input type="text" placeholder="username" required ngModel name="username" #username="ngModel" class="form-control"/>
+                        <span class="alerts" *ngIf="username.touched && !username.valid">Username isrequired</span>
+                        <input type="password" placeholder="password" ng-required ="true"/>
+                        <button [routerLink]="[ '/homepage' ]" >login</button>
+                        <p class="message">Not registered?
+                            <a href="#">Create an account</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        
+    </div>
+</div>

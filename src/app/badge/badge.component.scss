@@ -1,0 +1,16 @@
+.font-title {
+    font-weight: bold !important;
+    font-size: 18px !important;
+}
+
+.badge-component {
+    cursor: pointer;
+    transition: transform .25s ease, -webkit-transform .25s ease;
+    border: #c7c1c1 solid 1px;
+}
+
+.badge-component:hover {
+    box-shadow: 0 16px 40px 0 rgba(182, 205, 239, .97);
+    -webkit-transform: translateY(-1rem);
+    transform: translateY(-1rem);
+}
