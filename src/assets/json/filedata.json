@@ -1,0 +1,27 @@
+{
+    "Queued": [
+            {"fileName":"file1",
+            "fileExtension":".txt"},
+            {"fileName":"file2",
+            "fileExtension":".exe"},
+            {"fileName":"file3",
+            "fileExtension":".pdf"}
+            ],
+    "ScanPerformed": [
+                {"fileName":"file4",
+                "fileExtension":".txt"},
+                {"fileName":"file5",
+                "fileExtension":".exe"},
+                {"fileName":"file6",
+                "fileExtension":".pdf"}
+              ],
+    "Quarantine": [
+                {"fileName":"file7",
+                "fileExtension":".txt"},
+                {"fileName":"file8",
+                "fileExtension":".exe"},
+                {"fileName":"file9",
+                "fileExtension":".pdf"}
+                ]        
+}
+   

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, ChangeDetectionStrategy, OnChanges, SimpleChange, AfterViewChecked, AfterContentChecked } from '@angular/core';
+import { FilesdataService } from '../core/filesdata/filesdata.service';
 
 @Component({
   selector: 'app-badge',
@@ -8,7 +9,7 @@ import { Component, OnInit, Input, ChangeDetectionStrategy, OnChanges, SimpleCha
 })
 export class BadgeComponent implements OnInit,OnChanges,AfterContentChecked {
 
-  
+
 
   @Input()
   iconClass: string;
@@ -18,6 +19,7 @@ export class BadgeComponent implements OnInit,OnChanges,AfterContentChecked {
   title: string;
   @Input()
   count: number;
+  
   constructor() { 
     console.log("Badge Component :  Constructor",this.count);
 
@@ -25,7 +27,6 @@ export class BadgeComponent implements OnInit,OnChanges,AfterContentChecked {
 
   ngOnInit() {
     console.log("Badge Component :  OnInit",this.count);
-
   }
 
   ngOnChanges(changes): void {
