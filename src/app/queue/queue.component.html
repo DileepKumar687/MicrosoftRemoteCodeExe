@@ -9,14 +9,17 @@
                     <th>FileName</th>
                     <th>FileExtension</th>
                     <th>Progress</th>
+                    <th *ngIf="showActions">Action</th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let file of files">
+                <tr *ngFor="let file of files; index as i">
                     <td></td>
                     <td>{{file.fileName}}</td>
                     <td>{{file.fileExtension}}</td>
-                    
+                    <td></td>
+                    <td *ngIf="showActions"><a class="btn btn-info" (click)="Scan(i)"  role="button">Scan</a>
+                        <a class="btn btn-info" (click)="Queue(i)"  role="button">Queue</a></td>
                 </tr>
                        
             </tbody>
