@@ -17,6 +17,7 @@ import { HomeModule } from './home/home.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { QueueComponent } from './queue/queue.component';
+import { HeaderComponent } from './header/header.component';
 
 
   
