@@ -1,27 +1,30 @@
+<div class="aa_htmlTable">
+    <h2 class="aa_h2">{{QueueName}} Files</h2>
+    <hr>
+    <table>
+      <thead>
+        <tr>
+            <th>#</th>
+            <th>FileName</th>
+            <th>FileExtension</th>
+            <th>Progress</th>
+            <th *ngIf="showActions">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let file of files; index as i">
+            <td>{{i+1}}</td>
+            <td>{{file.fileName}}</td>
+            <td>{{file.fileExtension}}</td>
+            <td></td>
+            <td *ngIf="showActions"><a class="btn btn-info zoom1" (click)="Scan(i)"  role="button"><span class="fa fa-search zoom"></span>&nbsp; Scan</a>
+                &nbsp;<a class="btn btn-info zoom1" *ngIf="QueueName=='Quarantine'" (click)="Queue(i)"  role="button"><span class="fa fa-list zoom"></span>&nbsp; Queue</a></td>
+        </tr>   
+      </tbody>
+      <tfoot>
+      </tfoot>
+    </table>
+  </div>
 
-<label for="QueueName">{{QueueName}}</label>
-<div class="row">
-<div class="bs-example col-md-6">
-        <table class="table table-hover" >
-            <thead class="thead-dark">
-                <tr>
-                    <th></th>
-                    <th>FileName</th>
-                    <th>FileExtension</th>
-                    <th>Progress</th>
-                    <th *ngIf="showActions">Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let file of files; index as i">
-                    <td></td>
-                    <td>{{file.fileName}}</td>
-                    <td>{{file.fileExtension}}</td>
-                    <td></td>
-                    <td *ngIf="showActions"><a class="btn btn-info" (click)="Scan(i)"  role="button">Scan</a>
-                        <a class="btn btn-info" (click)="Queue(i)"  role="button">Queue</a></td>
-                </tr>
-                       
-            </tbody>
-        </table>
-    </div></div>
+  
+  
