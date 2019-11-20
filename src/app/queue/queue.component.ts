@@ -31,6 +31,7 @@ export class QueueComponent implements OnInit {
   switch (this.QueueName) {
     case 'Queued':
       this.files = this.filedata.queuedFiles;
+      this.showActions = true;
       break;
     case 'Scan Performed':
         this.files = this.filedata.scannedFiles;
@@ -47,9 +48,19 @@ export class QueueComponent implements OnInit {
   }
 
  Scan(i: number){
- this.filedata.scannedFiles.push(this.filedata.quarantineFiles[i]);
- this.filedata.quarantineFiles.splice(i, 1);
- this.router.navigate(['/report']);
+   if(this.QueueName ==='Quarantine')
+   {
+    this.filedata.scannedFiles.push(this.filedata.quarantineFiles[i]);
+    this.filedata.quarantineFiles.splice(i, 1);
+    this.router.navigate(['/report']);
+   }
+   else
+   {
+    this.filedata.scannedFiles.push(this.filedata.queuedFiles[i]);
+    this.filedata.queuedFiles.splice(i, 1);
+    this.router.navigate(['/report']);
+   }
+
  }
  Queue(i: number){
   this.filedata.queuedFiles.push(this.filedata.quarantineFiles[i]);
