@@ -16,6 +16,8 @@ import { StartWithPipe } from '../Pipes/StartsWithPipe';
 import { HighlightDirective } from '../Directives/highlight.directive';
 import { HeaderComponent } from '../header/header.component';
 import { QueueComponent } from '../queue/queue.component';
+import { LoginComponent } from '../login/login.component';
+import { ReactiveFormsModule ,FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,8 +30,12 @@ import { QueueComponent } from '../queue/queue.component';
     MyForloopDirective,
     StartWithPipe,
     HighlightDirective,
-    HeaderComponent,
-    QueueComponent
+    QueueComponent,
+    HeaderComponent
+    // FormsModule,
+    // LoginComponent,
+    // ReactiveFormsModule
+    
   ],
   imports: [
     CommonModule,
