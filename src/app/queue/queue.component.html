@@ -19,11 +19,23 @@
             <td>{{file.fileName}}</td>
             <td>{{file.fileExtension}}</td>
             <td *ngIf="QueueName=='Queued'">
-              <circle-progress *ngIf="i==0" class="mx-auto scan-progress" [percent]="50" [radius]="30" [outerStrokeWidth]="3" [innerStrokeWidth]="2" [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'" [animation]="false"></circle-progress>
-              <circle-progress *ngIf="i!=0" class="mx-auto scan-progress" [percent]="0" [radius]="30" [outerStrokeWidth]="3" [innerStrokeWidth]="2" [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'" [animation]="false"></circle-progress>
+              <circle-progress *ngIf="i!=0 || !isCancelbtn; else elsecircle" class="mx-auto scan-progress" [percent]="0" [radius]="30" [outerStrokeWidth]="3" [innerStrokeWidth]="2" [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'" [animation]="false"></circle-progress>
+              <ng-template #elsecircle>
+                <circle-progress  class="mx-auto scan-progress" [percent]="50" [radius]="30" [outerStrokeWidth]="3" [innerStrokeWidth]="2" [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'" [animation]="false"></circle-progress>
+              </ng-template>
+              
             </td>
-            <td *ngIf="showActions"><a class="btn btn-info zoom1" (click)="Scan(i)"  role="button"><span class="fa fa-search zoom"></span>&nbsp; Scan</a>
-                &nbsp;<a class="btn btn-info zoom1 moveToQ" *ngIf="QueueName=='Quarantine'" (click)="Queue(i)"  role="button"><span class="fa fa-list zoom"></span>&nbsp;Move To Queue</a></td>
+            <td *ngIf="QueueName=='Quarantine'"><a class="btn btn-info zoom1" (click)="Scan(i)"  role="button"><span class="fa fa-search zoom"></span>&nbsp; Scan</a>
+                &nbsp;<a class="btn btn-info zoom1 moveToQ"  (click)="Queue(i)"  role="button"><span class="fa fa-list zoom"></span>&nbsp;Move To Queue</a></td>
+                
+                  <td *ngIf="QueueName=='Queued'"><a class="btn btn-info zoom1" *ngIf="i!=0 || !isCancelbtn; else Cancelbtn"   (click)="Scan(i)"  role="button"><span class="fa fa-search zoom"></span>&nbsp; Scan</a>
+                    &nbsp;
+                    <ng-template #Cancelbtn>
+                    <a class="btn btn-info zoom1 Cancelbtn" *ngIf="i==0" (click)="CancleClick()" role="button"><span class="fa fa-close zoom" style="color:red"></span>&nbsp;Cancel</a>
+                  </ng-template>
+                  </td>
+                
+                
         </tr>   
       </tbody>
       <tfoot>

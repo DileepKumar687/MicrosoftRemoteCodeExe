@@ -15,6 +15,7 @@ export class QueueComponent implements OnInit {
   QueueName: string = 'Queued';
   files: file[] = [];
   showActions = false;
+  isCancelbtn = true;
   // files : file[]=[
   //   new file('Suspicious.xlsx','xlsx'),
   //   new file('Malware.docx','docx')
@@ -62,5 +63,9 @@ export class QueueComponent implements OnInit {
  Queue(i: number){
   this.filedata.queuedFiles.push(this.filedata.quarantineFiles[i]);
   this.filedata.quarantineFiles.splice(i, 1);
+ }
+ CancleClick()
+ {
+this.isCancelbtn = false;
  }
 }
