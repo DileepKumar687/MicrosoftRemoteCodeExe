@@ -48,14 +48,11 @@ export class QueueComponent implements OnInit {
   }
 
  Scan(i: number){
-   if(this.QueueName ==='Quarantine')
-   {
+   if (this.QueueName ==='Quarantine') {
     this.filedata.scannedFiles.push(this.filedata.quarantineFiles[i]);
     this.filedata.quarantineFiles.splice(i, 1);
     this.router.navigate(['/report']);
-   }
-   else
-   {
+   } else {
     this.filedata.scannedFiles.push(this.filedata.queuedFiles[i]);
     this.filedata.queuedFiles.splice(i, 1);
     this.router.navigate(['/report']);

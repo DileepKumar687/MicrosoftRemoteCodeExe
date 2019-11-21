@@ -43,3 +43,16 @@
     transition: 1s ease-in-out cubic-bezier(0.075, 0.82, 0.165, 1);
     cursor: pointer;
 }
+button {
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+}
+  .backbtn:hover{
+    .fa{
+      float:left;
+    }
+  }

@@ -24,5 +24,19 @@ body{
         transition-duration: 0.5s;
       }
   }
-
-  
+  button {
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+}
+  .backbtn:hover{
+    .fa{
+      float:left;
+    }
+  }
+  .moveToQ{
+    background-color: cornflowerblue !important;
+  }

@@ -1,4 +1,5 @@
 <app-header></app-header>
+<div class="backbtn ml-2" [routerLink]="[ '/homepage' ]"><button><span class="fa fa-arrow-left fa-1x"></span>&nbsp;Back To Home</button></div>
 <div class="aa_htmlTable">
     <h2 class="aa_h2">{{QueueName}} Files</h2>
     <hr>
@@ -8,7 +9,7 @@
             <th>#</th>
             <th>FileName</th>
             <th>FileExtension</th>
-            <th>Progress</th>
+            <th *ngIf="QueueName=='Queued'">Progress</th>
             <th *ngIf="showActions">Action</th>
         </tr>
       </thead>
@@ -17,9 +18,12 @@
             <td>{{i+1}}</td>
             <td>{{file.fileName}}</td>
             <td>{{file.fileExtension}}</td>
-            <td></td>
+            <td *ngIf="QueueName=='Queued'">
+              <circle-progress *ngIf="i==0" class="mx-auto scan-progress" [percent]="50" [radius]="30" [outerStrokeWidth]="3" [innerStrokeWidth]="2" [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'" [animation]="false"></circle-progress>
+              <circle-progress *ngIf="i!=0" class="mx-auto scan-progress" [percent]="0" [radius]="30" [outerStrokeWidth]="3" [innerStrokeWidth]="2" [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'" [animation]="false"></circle-progress>
+            </td>
             <td *ngIf="showActions"><a class="btn btn-info zoom1" (click)="Scan(i)"  role="button"><span class="fa fa-search zoom"></span>&nbsp; Scan</a>
-                &nbsp;<a class="btn btn-info zoom1" *ngIf="QueueName=='Quarantine'" (click)="Queue(i)"  role="button"><span class="fa fa-list zoom"></span>&nbsp; Queue</a></td>
+                &nbsp;<a class="btn btn-info zoom1 moveToQ" *ngIf="QueueName=='Quarantine'" (click)="Queue(i)"  role="button"><span class="fa fa-list zoom"></span>&nbsp;Move To Queue</a></td>
         </tr>   
       </tbody>
       <tfoot>
